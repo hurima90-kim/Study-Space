@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/hurima90-kim/Note-Taking/issues"
   },
-  "homepage": "https://github.com/hurima90-kim/Note-Taking#readme"
+  "homepage": "https://github.com/hurima90-kim/Note-Taking#readme",
+  "dependencies": {
+    "node-sass": "^6.0.0"
+  }
 }

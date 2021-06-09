@@ -1,6 +1,7 @@
 const noteContainer = document.querySelector('.note-container')
 const modalContainer = document.querySelector('.modal-container')
 const form = document.querySelector('form')
+const titleInput = document.querySelector('#title')
 
 
 // 생성자 함수로 제목과 본문을 가져와서 새 노트를 할당
@@ -32,6 +33,17 @@ function addNoteToList(note){
     noteContainer.appendChild(newUINote)
 }
 
+// 경고 메시지 출력
+function showAlertMessage(message, alertClass){
+    const alertDiv = document.createElement('div')
+    alertDiv.className = `message ${alertClass}`
+    alertDiv.appendChild(document.createTextNode(message))
+    form.insertAdjacentElement('beforebegin', alertDiv)
+    titleInput.focus()
+    setTimeout(() => alertDiv.remove(), 2000)
+}
+
+
 // View Detail 클릭시 모달창 생성
 function activateNoteModal(title, body){
     const modalTitle = document.querySelector('.modal_title')
@@ -57,6 +69,7 @@ noteContainer.addEventListener('click', (e) => {
     // Note Delete 
     if(e.target.classList.contains('note_delete')){
         const currentNote = e.target.closest('.note')
+        showAlertMessage('Your note was permanently deleted', 'remove-message') 
         currentNote.remove()
     }
 })
@@ -64,7 +77,6 @@ noteContainer.addEventListener('click', (e) => {
 form.addEventListener('submit', (e) => {
     e.preventDefault()
     
-    const titleInput = document.querySelector('#title')
     const noteInput = document.querySelector('#note')
 
     // validate inputs
@@ -73,6 +85,9 @@ form.addEventListener('submit', (e) => {
         addNoteToList(newNote)
         titleInput.value = ''
         noteInput.value = ''
+        showAlertMessage('Note successfully added!', 'success-message')
         titleInput.focus()
+    } else {
+        showAlertMessage('Please add both a title and a note', 'alert-message')        
     }
 })

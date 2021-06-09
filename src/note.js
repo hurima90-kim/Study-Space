@@ -32,6 +32,35 @@ function addNoteToList(note){
     noteContainer.appendChild(newUINote)
 }
 
+// View Detail 클릭시 모달창 생성
+function activateNoteModal(title, body){
+    const modalTitle = document.querySelector('.modal_title')
+    const modalBody = document.querySelector('.modal_body')
+    modalTitle.textContent = title;
+    modalBody.textContent = body;
+    modalContainer.classList.add('active')
+}
+
+// 모달창 닫기
+const modalBtn = document.querySelector('.modal_btn').addEventListener('click', () => {
+    modalContainer.classList.remove('active')
+})
+
+// 작성된 메모안의 버튼
+noteContainer.addEventListener('click', (e) => {
+    if(e.target.classList.contains('note_view')){
+        const currentNote = e.target.closest('.note')
+        const currentTitle = currentNote.querySelector('.note_title').textContent
+        const currentBody = currentNote.querySelector('.note_body').textContent
+        activateNoteModal(currentTitle, currentBody)
+    }
+    // Note Delete 
+    if(e.target.classList.contains('note_delete')){
+        const currentNote = e.target.closest('.note')
+        currentNote.remove()
+    }
+})
+
 form.addEventListener('submit', (e) => {
     e.preventDefault()
     

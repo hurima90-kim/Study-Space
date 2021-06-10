@@ -207,6 +207,7 @@ form [type="submit"]:hover, form [type="submit"]:focus {
   padding: 1.5rem;
   -webkit-transition: all 250ms ease-out;
   transition: all 250ms ease-out;
+  margin-bottom: 1rem;
 }
 
 .note_title {

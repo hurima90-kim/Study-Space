@@ -15,6 +15,33 @@ class Note {
 
 
 // Local Storage
+// Local storage에서 메모를 검색하기 위한 추가 및 삭제
+function getNotes(){
+    let note
+    if(localStorage.getItem('noteApp.notes') === null){
+        notes = []
+    } else {
+        notes = JSON.parse(localStorage.getItem('noteApp.notes'))
+    }
+    return notes
+}
+getNotes()
+
+function addNoteToLocalStorage(note){
+    const notes = getNotes()
+    notes.push(note)
+    localStorage.setItem('noteApp.notes', JSON.stringify(notes))
+}
+
+function removeNote(id){
+    const notes = getNotes()
+    notes.forEach((note, index) => {
+        if(note.id === id){
+            notes.splice(index, 1)
+        }
+        localStorage.setItem('noteApp.notes', JSON.stringify(notes))
+    })
+}
 
 
 // UI Update
@@ -33,7 +60,15 @@ function addNoteToList(note){
     noteContainer.appendChild(newUINote)
 }
 
-// 경고 메시지 출력
+// Show notes
+function displayNotes(){
+    const notes = getNotes()
+    notes.forEach(note => {
+        addNoteToList(note)
+    })
+}
+
+// Alert Message
 function showAlertMessage(message, alertClass){
     const alertDiv = document.createElement('div')
     alertDiv.className = `message ${alertClass}`
@@ -53,7 +88,7 @@ function activateNoteModal(title, body){
     modalContainer.classList.add('active')
 }
 
-// 모달창 닫기
+// Close Modal
 const modalBtn = document.querySelector('.modal_btn').addEventListener('click', () => {
     modalContainer.classList.remove('active')
 })
@@ -71,8 +106,14 @@ noteContainer.addEventListener('click', (e) => {
         const currentNote = e.target.closest('.note')
         showAlertMessage('Your note was permanently deleted', 'remove-message') 
         currentNote.remove()
+
+        const id = currentNote.querySelector('span').textContent
+        removeNote(Number(id))
     }
 })
+
+// Display Notes 페이지가 로드 될때 displayNotes를 실행
+document.addEventListener('DOMContentLoaded', displayNotes)
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -83,6 +124,7 @@ form.addEventListener('submit', (e) => {
     if(titleInput.value.length > 0 && noteInput.value.length > 0){
         const newNote = new Note(titleInput.value, noteInput.value)
         addNoteToList(newNote)
+        addNoteToLocalStorage(newNote)
         titleInput.value = ''
         noteInput.value = ''
         showAlertMessage('Note successfully added!', 'success-message')

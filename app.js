@@ -4,6 +4,7 @@ const app = express();
 const path = require("path");
 const server = http.createServer(app); // express는 http를 통해서 실행됨
 const socketIO = require("socket.io");
+const moment = require("moment");
 
 const io = socketIO(server);
 
@@ -13,7 +14,12 @@ const PORT = process.env.PORT || 5000;
 
 io.on("connection", (socket) => {
     socket.on("chatting", (data) => {
-        io.emit("chatting", data)
+        const { name, msg } = data;
+        io.emit("chatting", {
+            name: name,
+            msg: msg,
+            time: moment(new Date()).format("H:mm A")
+        })
     })
 });
 

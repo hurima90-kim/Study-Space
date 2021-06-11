@@ -11,6 +11,7 @@ const displayContainer = document.querySelector(".display-container");
 chatInput.addEventListener("keypress", (event) => {
     if(event.keyCode === 13){
         send()
+        document.getElementById("reset").value='';
     }
 })
 
@@ -44,8 +45,8 @@ function LiModel(name, msg, time){
         const dom = `
             <span class="profile">
                 <img class="image" src="https://placeimg.com/50/50/any" alt="">
-                <span class="user">${this.name}</span>
             </span>
+            <span class="user">${this.name}</span>
             <span class="message">${this.msg}</span>
             <span class="time">${this.time}</span>
         `;

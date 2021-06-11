@@ -12,7 +12,9 @@ app.use(express.static(path.join(__dirname, "src")));
 const PORT = process.env.PORT || 5000;
 
 io.on("connection", (socket) => {
-    console.log("연결되었습니다.");
+    socket.on("chatting", (data) => {
+        io.emit("chatting", data)
+    })
 });
 
 server.listen(PORT, () => console.log(`server is running ${PORT}`));

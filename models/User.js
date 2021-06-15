@@ -1,4 +1,7 @@
 const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
+const saltRounds = 10
+
 
 
 const userSchema = mongoose.Schema({
@@ -31,6 +34,34 @@ const userSchema = mongoose.Schema({
         type: Number
     }
 })
+
+userSchema.pre('save', function(next){
+    let user = this
+    if(user.isModified('password')){
+        // 비밀번호를 암호화 시킨다.
+        bcrypt.genSalt(saltRounds, function(err, salt) {
+            if(err) return next(err)
+    
+            bcrypt.hash(user.password, salt, function(err, hash) {
+                // Store hash in your password DB.
+                if(err) return next(err)
+                user.password = hash;
+                next()
+            })
+        })
+    } else {
+        next()
+    }
+})
+
+userSchema.methods.comparePassword = function(plainPassword, callback){
+    // plainPassword : 12345678
+    // 암호화된 비밀번호 : $2b$10$Ma2QwJAdmUsSh5WrMyky3.uy61wkwWXgVT7RWeThfuO4IvOcyUaWS
+    bcrypt.compare(plainPassword, this.password, function(err, isMatch){
+        if(err) return callback(err),
+        callback(null, isMatch)
+    })
+}
 
 const User = mongoose.model('User', userSchema)
 

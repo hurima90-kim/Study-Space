@@ -1,2 +1,2 @@
-# Movie-App
-Movie-App with boiler plate
+# boiler-plate
+Boiler-plate with Node.js, React

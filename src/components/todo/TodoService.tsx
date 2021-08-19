@@ -29,7 +29,7 @@ export const useTodo = () => {
     //@TODO
     let updateTodos = todoState.map(todo => {
       if(todo.id === id){
-        todo.done = !todo.done
+        todo.done = true;
       }
       return todo
     })

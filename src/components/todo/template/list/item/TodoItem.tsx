@@ -83,7 +83,7 @@ const TodoItem = ({ toggleTodo, removeTodo, todo }: TodoItemProps) => {
   const confirmRemove = () => {
     Modal.confirm({
       title: 'Todo 삭제',
-      content: '해당 Todo를 삭제하시겠습니까?',
+      content: `'${todo.text} Todo를 삭제하시겠습니까?`,
       okText: '삭제',
       cancelText: '취소',
       onOk: () => handleRemove(),

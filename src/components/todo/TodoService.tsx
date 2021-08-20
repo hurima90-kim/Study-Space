@@ -12,7 +12,7 @@ let initialTodos: Itodo[] = [];
 
 export const useTodo = () => {
   const [todoState, setTodoState] = useState(initialTodos);
-  const [nextIdState, setNextIdState] = useState(0);
+  var nextIdState = 0;
 
   useEffect(() => {
     loadData();
@@ -23,7 +23,7 @@ export const useTodo = () => {
   }, [todoState]);
 
   const incrementNextId = () => {
-    setNextIdState((prevNextIdState) => prevNextIdState + 1)
+    nextIdState = nextIdState + 1;
   };
 
   const toggleTodo = (id: number) => {
@@ -44,7 +44,7 @@ export const useTodo = () => {
   };
 
   const createTodo = (todo: Itodo) => {
-    const nextId = todoState.length + 1;
+    const nextId = Math.random() * 1000;
     setTodoState((prevState) =>
       prevState.concat({
         ...todo,
@@ -55,7 +55,7 @@ export const useTodo = () => {
 
   const loadData = () => {
     let data = localStorage.getItem("todos");
-    if (data === undefined) data = "";
+    if (data === null) data = "[]";
     initialTodos = JSON.parse(data!);
     if (initialTodos && initialTodos.length >= 1) {
       incrementNextId();

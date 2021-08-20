@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { Itodo } from "components/todo/TodoService";
+import DatePickerComponent from "../head/DatePicker";
 
 const CircleButton = styled.button<{ open: boolean }>`
   background: #33bb77;
@@ -38,7 +39,7 @@ const InsertForm = styled.form`
 const Input = styled.input`
   padding: 12px;
   border: 1px solid #dddddd;
-  width: 100%;
+  width: 70%;
   outline: none;
   font-size: 21px;
   box-sizing: border-box;
@@ -91,6 +92,7 @@ const TodoCreate = ({
             onChange={handleChange}
             value={value}
           />
+          <DatePickerComponent />
 
           <CircleButton onClick={handleToggle} open={open}>
             <PlusCircleOutlined />

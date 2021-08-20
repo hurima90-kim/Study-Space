@@ -1,9 +1,10 @@
 import { CheckOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Itodo } from "components/todo/TodoService";
-import { getDate } from "components/utils/date";
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import moment from "moment";
+import { Modal } from 'antd';
+import 'antd/dist/antd.css';
 
 const Remove = styled.div`
   display: flex;
@@ -79,6 +80,16 @@ const TodoItem = ({ toggleTodo, removeTodo, todo }: TodoItemProps) => {
     removeTodo(todo.id)
   };
 
+  const confirmRemove = () => {
+    Modal.confirm({
+      title: 'Todo 삭제',
+      content: '해당 Todo를 삭제하시겠습니까?',
+      okText: '삭제',
+      cancelText: '취소',
+      onOk: () => handleRemove(),
+    })
+  }
+
   return (
     <TodoItemBlock>
       <CheckCircle done={done} onClick={handleToggle}>
@@ -86,8 +97,7 @@ const TodoItem = ({ toggleTodo, removeTodo, todo }: TodoItemProps) => {
       </CheckCircle>
       <Text done={done}>{todo.text}</Text>
       <DueDate>Due Date: {`${moment(todo.dueDate).format('YYYY/MM/DD')}`}</DueDate>
-      {console.log(todo.dueDate)}
-      <Remove onClick={handleRemove}>
+      <Remove onClick={confirmRemove}>
         <DeleteOutlined />
       </Remove>
     </TodoItemBlock>

@@ -96,6 +96,7 @@ const TodoCreate = ({
             placeholder="What's need to be done?"
             onChange={handleChange}
             value={value}
+            required
           />
           <DatePicker onChange={handleDate} value={moment(dueDate)} />
           <CircleButton onClick={handleToggle} open={open}>

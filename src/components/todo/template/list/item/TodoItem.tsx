@@ -1,7 +1,9 @@
 import { CheckOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Itodo } from "components/todo/TodoService";
+import { getDate } from "components/utils/date";
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
+import moment from "moment";
 
 const Remove = styled.div`
   display: flex;
@@ -54,6 +56,11 @@ const Text = styled.div<{ done: boolean }>`
     `}
 `;
 
+const DueDate = styled.div`
+  margin-right: 15px;
+  color: #858585;
+`;
+
 interface TodoItemProps {
   toggleTodo: (id: number) => void;
   removeTodo: (id: number) => void;
@@ -76,6 +83,8 @@ const TodoItem = ({ toggleTodo, removeTodo, todo }: TodoItemProps) => {
         {done && <CheckOutlined />}
       </CheckCircle>
       <Text done={done}>{todo.text}</Text>
+      <DueDate>Due Date: {`${moment(todo.dueDate).format('YYYY/MM/DD')}`}</DueDate>
+      {console.log(todo.dueDate)}
       <Remove onClick={handleRemove}>
         <DeleteOutlined />
       </Remove>

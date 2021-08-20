@@ -74,10 +74,14 @@ const TodoCreate = ({
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // 새로고침 방지
+    const trim = value.trim();
+    if (!trim) {
+      return;
+    }
 
     createTodo({
       id: nextId,
-      text: value,
+      text: trim,
       dueDate: dueDate,
       done: false
     });

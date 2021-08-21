@@ -44,7 +44,8 @@ export const useTodo = () => {
   };
 
   const createTodo = (todo: Itodo) => {
-    const nextId = Math.random() * 1000;
+    // const nextId = Math.random() * 1000;
+    const nextId = (todoState.length && todoState[todoState.length - 1].id) + 1;
     setTodoState((prevState) =>
       prevState.concat({
         ...todo,

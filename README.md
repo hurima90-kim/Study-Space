@@ -37,7 +37,7 @@
 
 ## 🚀 배포
 
-Demo Link: https://solar-connect-sorting-machine.netlify.app
+Demo Link: https://solar-connect-todolist.netlify.app/
 <br/><br/>
 
 ## 🗂 구현 목록
@@ -61,7 +61,7 @@ Demo Link: https://solar-connect-sorting-machine.netlify.app
 `버그 수정하기`
 
 - Todo item이 삭제되지 않는 버그 해결
-- Todo item 추가 시 id값을 랜덤으로 생성(id값 중복 생성 방지)
+- Todo item 추가 시 id 중복생성되는 문제 해결
 - 초기 렌더링에 발생하는 JSON parsing 문제 해결
   <br/><br/>
 

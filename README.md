@@ -56,6 +56,7 @@ Demo Link: https://solar-connect-sorting-machine.netlify.app
 
 - 입력값 없이 Todo등록 시 알림발생
 - Todo 삭제 버튼 클릭 시 Modal창으로 삭제 여부 확인
+- 입력값의 앞뒤에 공백문자를 없애기 위해 trim() 함수 사용
 
 `버그 수정하기`
 

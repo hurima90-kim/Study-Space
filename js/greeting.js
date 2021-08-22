@@ -27,11 +27,11 @@ function paintGreetings(text) {
   form.classList.remove(SHOWING_CN);
   greeting.classList.add(SHOWING_CN);
   if (hours >= 6 && hours < 12) {
-    greeting.textContent = `Good Morning ${text}`;
+    greeting.textContent = `Good Morning, ${text}`;
   } else if (hours >= 12 && hours < 16) {
-    greeting.textContent = `Good Afternoon ${text}`;
+    greeting.textContent = `Good Afternoon, ${text}`;
   } else if (hours >= 18) {
-    greeting.textContent = `Good Evening ${text}`;
+    greeting.textContent = `Good Evening, ${text}`;
   }
 }
 

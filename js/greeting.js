@@ -22,9 +22,17 @@ function askForName() {
 }
 
 function paintGreetings(text) {
+  const hours = new Date().getHours();
+
   form.classList.remove(SHOWING_CN);
   greeting.classList.add(SHOWING_CN);
-  greeting.innerText = `Hello ${text}`;
+  if (hours >= 6 && hours < 12) {
+    greeting.textContent = `Good Morning ${text}`;
+  } else if (hours >= 12 && hours < 16) {
+    greeting.textContent = `Good Afternoon ${text}`;
+  } else if (hours >= 18) {
+    greeting.textContent = `Good Evening ${text}`;
+  }
 }
 
 function loadName() {

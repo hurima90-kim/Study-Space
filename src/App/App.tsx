@@ -1,4 +1,5 @@
 import { AddTodoForm } from "components/AddTodoForm";
+import { Header } from "components/Header";
 import { TodoList } from "components/TodoList";
 import React, { useState } from "react";
 
@@ -29,6 +30,7 @@ const App : React.FC = () => {
 
   return (
     <>
+      <Header />
       <AddTodoForm addTodo={addTodo} />
       <TodoList todos={todos} toggleTodo={toggleTodo} />
     </>

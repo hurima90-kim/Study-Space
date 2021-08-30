@@ -1,3 +1,4 @@
+import { AddTodoForm } from "components/AddTodoForm";
 import { TodoList } from "components/TodoList";
 import React, { useState } from "react";
 
@@ -22,8 +23,13 @@ const App : React.FC = () => {
     setTodos(newTodos);
   }
 
+  const addTodo: AddTodo = newTodo => {
+    newTodo.trim() !== "" && setTodos([...todos, {text: newTodo, complete: false}])
+  }
+
   return (
     <>
+      <AddTodoForm addTodo={addTodo} />
       <TodoList todos={todos} toggleTodo={toggleTodo} />
     </>
   );

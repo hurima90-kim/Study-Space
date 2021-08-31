@@ -26,15 +26,15 @@ export const removeTodo = (id: number) => ({
 
 // 모든 액션 객체들에 대한 타입 준비
 type TodosAction =
-  | ReturnType<typeof addTodo>
-  | ReturnType<typeof toggleTodo>
-  | ReturnType<typeof removeTodo>;
+    | ReturnType<typeof addTodo>
+    | ReturnType<typeof toggleTodo>
+    | ReturnType<typeof removeTodo>;
 
 // 상태에서 사용 할 할 일 항목 데이터 타입 정의
 export type Todo = {
-  id: number;
-  text: string;
-  done: boolean;
+    id: number;
+    content: string;
+    isCheck: boolean;
 };
 
 // 이 모듈에서 관리할 상태는 Todo 객체로 이루어진 배열
@@ -45,28 +45,28 @@ const initialState: TodosState = [];
 
 // 리듀서 작성
 function todos(
-  state: TodosState = initialState,
-  action: TodosAction
+    state: TodosState = initialState,
+    action: TodosAction
 ): TodosState {
-  switch (action.type) {
-    case ADD_TODO:
-      return state.concat({
-        // action.payload 객체 안의 값이 모두 유추됩니다.
-        id: action.payload.id,
-        text: action.payload.text,
-        done: false
-      });
-    case TOGGLE_TODO:
-      return state.map(todo =>
+    switch (action.type) {
+        case ADD_TODO:
+        return state.concat({
+            // action.payload 객체 안의 값이 모두 유추됩니다.
+            id: action.payload.id,
+            content: action.payload.text,
+            isCheck: false
+        });
+        case TOGGLE_TODO:
+        return state.map(todo =>
+            // payload 가 number 인 것이 유추됩니다.
+            todo.id === action.payload ? { ...todo, isCheck: !todo.isCheck } : todo
+        );
+        case REMOVE_TODO:
         // payload 가 number 인 것이 유추됩니다.
-        todo.id === action.payload ? { ...todo, done: !todo.done } : todo
-      );
-    case REMOVE_TODO:
-      // payload 가 number 인 것이 유추됩니다.
-      return state.filter(todo => todo.id !== action.payload);
-    default:
-      return state;
-  }
+        return state.filter(todo => todo.id !== action.payload);
+        default:
+        return state;
+    }
 }
 
 export default todos;

@@ -6,11 +6,12 @@ const REMOVE_TODO = 'todos/REMOVE_TODO' as const;
 let nextId = 1; // 새로운 항목을 추가 할 때 사용 할 고유 ID 값
 
 // 액션 생성 함수
-export const addTodo = (text: string) => ({
+export const addTodo = (content: string) => ({
   type: ADD_TODO,
   payload: {
     id: nextId++,
-    text
+    content,
+    createdAt: new Date().toISOString()
   }
 });
 
@@ -35,6 +36,7 @@ export type Todo = {
     id: number;
     content: string;
     isCheck: boolean;
+    createdAt: string;
 };
 
 // 이 모듈에서 관리할 상태는 Todo 객체로 이루어진 배열
@@ -53,8 +55,9 @@ function todos(
         return state.concat({
             // action.payload 객체 안의 값이 모두 유추됩니다.
             id: action.payload.id,
-            content: action.payload.text,
-            isCheck: false
+            content: action.payload.content,
+            isCheck: false,
+            createdAt: action.payload.createdAt
         });
         case TOGGLE_TODO:
         return state.map(todo =>

@@ -20,7 +20,7 @@ function TodoInsert({ onInsert }: TodoInsertProps) {
         onInsert(value);
         setValue('');
     };
-
+    
     return (
         <TodoForm onSubmit={onSubmit}>
             <input

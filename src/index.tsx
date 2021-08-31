@@ -1,23 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App/App';
-// import reducers from './reducers';
-// import { Provider } from 'react-redux';
-// import { createStore, applyMiddleware } from 'redux';
-// import rootReducer from './modules';
-// import createSagaMiddleware from 'redux-saga';
+import App from './App';
 import GlobalStyles from 'styles/GlobalStyles';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from './modules';
 
-// const sagaMiddleware = createSagaMiddleware();
-
-// const store = createStore(reducers, applyMiddleware(sagaMiddleware));
-
-// sagaMiddleware.run();
+const store = createStore(rootReducer);
 
 ReactDOM.render(
-  <>
-    <GlobalStyles />
-    <App />
-  </>,
+  <React.StrictMode>
+    <Provider store={store}>
+      <GlobalStyles />
+      <App />
+    </Provider>
+  </React.StrictMode>,  
   document.getElementById('root')
 );

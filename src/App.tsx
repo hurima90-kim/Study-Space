@@ -1,8 +1,11 @@
 import React from 'react';
-import TodoApp from './containers/TodoApp';
+import { Provider } from 'react-redux';
+import store from './store/store';
+import TodoList from 'containers/TodoList';
+import './styles.scss';
 
-const App: React.FC = () => {
-  return <TodoApp />;
-};
-
-export default App;
+export default () => (
+  <Provider store={store}>
+    <TodoList />
+  </Provider>
+);

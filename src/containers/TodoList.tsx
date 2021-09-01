@@ -39,6 +39,7 @@ const TodoList = ({
         loadRequest();
     }, [loadRequest]);
 
+    // 할 일 갯수에 따라 남은 갯수, 완료한 갯수 출력
     const getTaskCounter = () => (filterState === VisibilityFilters.SHOW_COMPLETED
         ? {
             counter: items.filter((item) => item.isCheck).length,
@@ -86,6 +87,7 @@ const TodoList = ({
     );
 };
 
+// 할 일 상태에 따른 분할
 const filterItems = (items: Item[], filter: string) => {
     switch (filter) {
         case VisibilityFilters.SHOW_ACTIVE:

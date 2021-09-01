@@ -24,6 +24,7 @@ export default ({
 
     useEffect(() => inputText?.current?.focus());
 
+    // 할 일 수정하기
     const acceptEdit = (itemID: number) => {
         const itemText = inputText?.current?.value?.trim() || '';
 

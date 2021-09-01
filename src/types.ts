@@ -38,6 +38,13 @@
   /**
    * Data types
    */
+  export interface CounterProps {
+    taskCounter: {
+        counter: number,
+        content: string
+    }
+  }
+
   export interface Item {
     id: number,
     content: string,

@@ -3,5 +3,8 @@ import { ItemsTypes } from '../../types';
 import { deleteRequest, load } from './sagas';
 
 export default function* rootSaga() {
-    return 
+    return all([
+        takeLatest(ItemsTypes.LOAD_REQUEST, load),
+        takeLatest(ItemsTypes.REMOVE_ITEM, deleteRequest),
+    ]);
 }

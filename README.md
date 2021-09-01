@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+## 프로젝트 소개
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![paywork](https://user-images.githubusercontent.com/66353903/131693106-15ffeab3-b6a1-4083-ab2b-3fd01f888118.png)
 
-## Available Scripts
 
-In the project directory, you can run:
+### 프리온보딩 코스 Pay Work 기업 과제
 
-### `yarn start`
+> ❕ **React + TypeScript와 Redux-saga활용한 Todo Application 구현하기**❗
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br/>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<details>
+    <summary>
+      <STRONG>
+       📚 과제 : To-Do List App 만들기
+      <STRONG>
+    </summary>
+  <div markdown="1">
+    <h3>유의 사항</h3><br/>
+    1.1 ts+react 웹 사이트 혹은 react-native 앱 개발 (react-native도 ts 가능)<br/><br/>
+    1.2 function 단위로 주석 설명<br/><br/>
+    1.3 디자인 등 따로 설명이 없는 부분은 본인의 재량에 맡깁니다<br/><br/>
+    1.4 redux + redux-saga 사용<br/><br/>
+    1.5 react-native, redux 모두 처음 시도하여 어려움이 있는 경우,  Async storage를 사용 가능하나 감점 있음<br/><br/>
+  </div>
+</details>
+<br/>
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 배포
 
-### `yarn build`
+Demo Link: https://modu-todolist.netlify.app/
+<br/><br/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🗂 구현 목록
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`Task생성, 수정, 삭제`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 내용 작성 후 task 추가
+- 연필 아이콘 클릭 후 task 수정
+- 휴지통 아이콘을 클릭 시 해당id에 맞는 Task가 삭제
 
-### `yarn eject`
+`Task 필터링`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- 설정된 Task의 상태(All, Active, Complete)에 따른 필터링
+- 각 상태에 맞는 task 갯수 출력
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`전역상태관리 및 비동기처리`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- React-redux를 활용한 전역상태관리
+- Redux-saga를 활용한 비동기처리
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<br/><br/>
 
-## Learn More
+## 💁🏻‍♂ 실행 방법
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 설치
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`npm install`
 
-### Code Splitting
+### 실행
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+`npm start`
+<br/><br/>
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

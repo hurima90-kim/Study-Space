@@ -25,7 +25,7 @@
   export interface TodoListActionTypes {
     type: string,
     payload: Item,
-    data: Item[]
+    todoList: Item[]
   }
   
   export interface FilterActionTypes {
@@ -40,9 +40,10 @@
    */
   export interface Item {
     id: number,
-    text: string,
+    content: string,
     editing: boolean,
-    complete: boolean
+    isCheck: boolean,
+    createdAt: string
   }
   
   /**
@@ -54,5 +55,5 @@
   }
   
   export interface ItemsState {
-    readonly data: Item[]
+    readonly todoList: Item[]
   }

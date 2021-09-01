@@ -1,48 +1,50 @@
 import { ItemsState, ItemsTypes, TodoListActionTypes } from '../../types';
 
 const initialState: ItemsState = {
-  data: [],
+  todoList: [],
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default (state = initialState, action: TodoListActionTypes): ItemsState => {
   switch (action.type) {
     case ItemsTypes.ADD_ITEM:
       return {
-        data: [
-          ...state.data,
+        todoList: [
+          ...state.todoList,
           {
             id: Math.random(),
-            text: action.payload.text,
+            content: action.payload.content,
             editing: false,
-            complete: false,
+            isCheck: false,
+            createdAt: new Date().toISOString()
           },
         ],
       };
 
     case ItemsTypes.TOGGLE_ITEM:
       return {
-        data: state.data.map((item) => ((item.id === action.payload.id)
-          ? { ...item, complete: !item.complete }
+        todoList: state.todoList.map((item) => ((item.id === action.payload.id)
+          ? { ...item, isCheck: !item.isCheck }
           : item)),
       };
 
     case ItemsTypes.TOGGLE_EDIT_ITEM:
       return {
-        data: state.data.map((item) => ((item.id === action.payload.id)
+        todoList: state.todoList.map((item) => ((item.id === action.payload.id)
           ? { ...item, editing: !item.editing }
           : item)),
       };
 
     case ItemsTypes.UPDATE_ITEM:
       return {
-        data: state.data.map((item) => ((item.id === action.payload.id)
-          ? { ...item, text: action.payload.text }
+        todoList: state.todoList.map((item) => ((item.id === action.payload.id)
+          ? { ...item, content: action.payload.content }
           : item)),
       };
 
     case ItemsTypes.REMOVE_ITEM:
       return {
-        data: state.data.filter((item) => item.id !== action.payload.id),
+        todoList: state.todoList.filter((item) => item.id !== action.payload.id),
       };
 
     case ItemsTypes.LOAD_REQUEST:
@@ -50,12 +52,12 @@ export default (state = initialState, action: TodoListActionTypes): ItemsState =
 
     case ItemsTypes.LOAD_SUCCESS:
       return {
-        data: action.data,
+        todoList: action.todoList,
       };
 
     case ItemsTypes.LOAD_FAILURE:
       return {
-        data: [],
+        todoList: [],
       };
 
     default:

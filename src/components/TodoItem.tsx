@@ -5,7 +5,7 @@ interface TodoItemProps {
     item: Item,
     toggleItem(id: number): void,
     toggleEditItem(id: number): void,
-    updateItem(id: number, text: string): void,
+    updateItem(id: number, content: string): void,
     removeItem(id: number): void
 }
 
@@ -13,7 +13,7 @@ interface TodoItemProps {
 // eslint-disable-next-line import/no-anonymous-default-export
 export default ({
     item: {
-        id, text, editing, complete,
+        id, content, editing, isCheck,
     },
     toggleItem,
     toggleEditItem,
@@ -42,7 +42,7 @@ export default ({
                     <input
                     className="edit-item"
                     ref={inputText}
-                    defaultValue={text}
+                    defaultValue={content}
                     />
                     <div>
                     <span className="icon" role="presentation" onClick={() => acceptEdit(id)}>
@@ -60,9 +60,9 @@ export default ({
                         <div
                             onClick={() => toggleItem(id)}
                             role="presentation"
-                            className={complete ? 'checkbox-item checked' : 'checkbox-item'}
+                            className={isCheck ? 'checkbox-item checked' : 'checkbox-item'}
                         />
-                        <span>{complete ? <s>{text}</s> : text}</span>
+                        <span>{isCheck ? <s>{content}</s> : content}</span>
                     </div>
                     <div>
                         <span className="icon" role="presentation" onClick={() => toggleEditItem(id)}>

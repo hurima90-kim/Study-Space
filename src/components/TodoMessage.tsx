@@ -7,7 +7,7 @@ interface MessageProps {
   filterState: string,
   getTaskCounter(): {
     counter: number,
-    text: string
+    content: string
   }
 }
 

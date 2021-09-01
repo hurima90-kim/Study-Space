@@ -15,10 +15,10 @@ interface StateProps {
 }
 
 interface DispatchProps {
-    addItem(text: string): void,
+    addItem(content: string): void,
     toggleItem(id: number): void,
     toggleEditItem(id: number): void,
-    updateItem(id: number, text: string): void,
+    updateItem(id: number, content: string): void,
     removeItem(id: number): void,
     loadRequest(): void
 }
@@ -41,11 +41,11 @@ const TodoList = ({
 
     const getTaskCounter = () => (filterState === VisibilityFilters.SHOW_COMPLETED
         ? {
-            counter: items.filter((item) => item.complete).length,
-            text: 'completed tasks',
+            counter: items.filter((item) => item.isCheck).length,
+            content: 'completed tasks',
         } : {
-            counter: items.filter((item) => !item.complete).length,
-            text: 'tasks left',
+            counter: items.filter((item) => !item.isCheck).length,
+            content: 'tasks left',
         });
 
     return (
@@ -89,16 +89,16 @@ const TodoList = ({
 const filterItems = (items: Item[], filter: string) => {
     switch (filter) {
         case VisibilityFilters.SHOW_ACTIVE:
-        return items.filter((item) => !item.complete);
+        return items.filter((item) => !item.isCheck);
         case VisibilityFilters.SHOW_COMPLETED:
-        return items.filter((item) => item.complete);
+        return items.filter((item) => item.isCheck);
         default:
         return items;
     }
 };
 
 const mapStateToProps = (state: ApplicationState) => ({
-    items: filterItems(state.items.data, state.filterState),
+    items: filterItems(state.items.todoList, state.filterState),
     filterState: state.filterState,
 });
 

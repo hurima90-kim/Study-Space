@@ -2,7 +2,7 @@ import React, { FormEvent, useRef, useEffect } from 'react';
 
 interface TodoFormProps {
     emptyList: boolean,
-    addItem(text: string): void,
+    addItem(content: string): void,
 }
     
 // eslint-disable-next-line import/no-anonymous-default-export

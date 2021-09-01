@@ -5,19 +5,19 @@ import { VisibilityFilters } from '../types';
 interface CounterProps {
     taskCounter: {
         counter: number,
-        text: string
+        content: string
     }
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default ({ taskCounter: { counter, text } }: CounterProps) => (
+export default ({ taskCounter: { counter, content } }: CounterProps) => (
     <div className="filters-container">
         <div>
             <span className="active">
                 {counter}
             </span>
             {' '}
-            <span>{text}</span>
+            <span>{content}</span>
         </div>
         <div className="filters">
             <FilterLink filter={VisibilityFilters.SHOW_ALL}>All</FilterLink>

@@ -4,10 +4,12 @@ interface HeaderProps {
     title: string,
 }
 
-export default ({ title }: HeaderProps) => {
+const TodoHeader = ({ title }: HeaderProps) => {
     return (
         <div className="header">
             {title}
         </div>
     )
 }
+
+export default TodoHeader

@@ -1,6 +1,6 @@
 import { VisibilityFilters, FilterActionTypes } from '../../types';
 
-export default (state = VisibilityFilters.SHOW_ALL, { type, payload }: FilterActionTypes) => {
+const filter = (state = VisibilityFilters.SHOW_ALL, { type, payload }: FilterActionTypes) => {
   switch (type) {
     case VisibilityFilters.UPDATE_FILTER:
       return payload.filter;
@@ -8,3 +8,5 @@ export default (state = VisibilityFilters.SHOW_ALL, { type, payload }: FilterAct
       return state;
   }
 };
+
+export default filter

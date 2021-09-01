@@ -4,8 +4,10 @@ import store from './store/store';
 import TodoList from 'containers/TodoList';
 import './styles.scss';
 
-export default () => (
+const App = () => (
   <Provider store={store}>
     <TodoList />
   </Provider>
 );
+
+export default App

@@ -40,8 +40,8 @@
    */
   export interface CounterProps {
     taskCounter: {
-        counter: number,
-        content: string
+      counter: number,
+      content: string
     }
   }
 

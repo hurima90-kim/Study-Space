@@ -60,6 +60,21 @@ input::placeholder {
   }
 }
 
+.keyword {
+  width: 500px;
+  font-size: 16px;
+}
+
+.search-button {
+  border: none;
+  outline: none;
+  background: none;
+  color: #fff;
+}
+
+.fas fa-search {
+}
+
 #weather {
   position: absolute;
   top: 50px;

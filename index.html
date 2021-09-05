@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Momentum App</title>
 </head>
 <body>
@@ -17,6 +18,12 @@
             <input type="text" placeholder="What is your name?">
         </form>
         <h4 class="js-greetings greetings"></h4>
+        <form class="search">
+            <input class="keyword" type="text" name="search" value="" maxlength="255" placeholder="Google 검색 또는 URL입력">
+            <button class="search-button" type="submit" name="click" value="" >
+                <i class="fas fa-search fa-lg"></i>
+            </button>
+        </form>
         <div id="weather">
             <h2 class="city"></h2>
             <h2 class="temp"></h2>

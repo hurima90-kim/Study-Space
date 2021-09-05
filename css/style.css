@@ -60,6 +60,10 @@ input::placeholder {
   }
 }
 
+.search {
+  margin-bottom: 30px;
+}
+
 .keyword {
   width: 500px;
   font-size: 16px;
@@ -119,4 +123,109 @@ input::placeholder {
   position: absolute;
   bottom: 30px;
   font-size: 18px;
+}
+
+.modal-button {
+  width: 80px;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  vertical-align: center;
+}
+
+.modal-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.openModal {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #fff;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.modal-button p {
+  margin: 0;
+  font-size: 14px;
+  color: #fff;
+}
+
+/* -------------------- Modal CSS -------------------- */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal h4 {
+  color: #000;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.modal-bg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-container {
+  position: absolute;
+  background-color: #fff;
+  width: 600px;
+  height: 250px;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal input {
+  width: 580px;
+  height: 30px;
+  outline-style: none;
+  border: none;
+  border-radius: 3px;
+  background: #ececec;
+  padding-left: 20px;
+  font-size: 16px;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.btn {
+  width: 70px;
+  height: 30px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.closeModal {
+  margin-right: 20px;
+  color: blue;
+  background-color: #fff;
+  border: 2px solid #ececec;
+}
+
+.completeModal {
+  color: gray;
 }

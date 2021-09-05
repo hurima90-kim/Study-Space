@@ -25,12 +25,36 @@
                 name="search" 
                 value="" 
                 maxlength="255" 
-                placeholder="Google 검색 또는 URL입력"
+                placeholder="Google 검색 또는 URL 입력"
             >
             <button class="search-button" type="submit" value="" >
                 <i class="fas fa-search fa-lg"></i>
             </button>
         </form>
+        <div class="modal-button">
+            <button class="openModal">
+                <i class="far fa-plus-square fa-3x"></i>
+            </button>
+            <p>바로가기 추가</p>
+        </div>
+        <div class="modal hidden">
+            <div class="modal-bg"></div>
+            <div class="modal-container">
+                <h4>바로가기 추가</h4>
+                <label for="name">
+                    이름
+                    <input type="text" id="name" value="" class="name">
+                </label>
+                <label for="url">
+                    URL
+                    <input type="text" id="url" value="" class="url">
+                </label>
+                <div class="btn-container">
+                    <button class="btn closeModal">취소</button>
+                    <button class="btn completeModal" type="submit">완료</button>
+                </div>
+            </div>
+        </div>
         <div id="weather">
             <h2 class="city"></h2>
             <h2 class="temp"></h2>
@@ -51,5 +75,6 @@
     <script src="./js/quotes.js"></script>
     <script src="./js/weather.js"></script>
     <script src="./js/search.js"></script>
+    <script src="./js/modal.js"></script>
 </body>
 </html>

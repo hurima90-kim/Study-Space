@@ -60,6 +60,36 @@ input::placeholder {
   }
 }
 
+#weather {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+#weather img {
+  width: 80px;
+}
+
+.city {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.description {
+  display: block;
+  font-size: 16px;
+}
+
+.temp {
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+}
+
 .bgImage {
   position: absolute;
   top: 0;
@@ -68,4 +98,10 @@ input::placeholder {
   height: 100%;
   z-index: -1;
   animation: fadeIn 0.5s linear;
+}
+
+#quote {
+  position: absolute;
+  bottom: 30px;
+  font-size: 18px;
 }

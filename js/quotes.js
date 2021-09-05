@@ -2,48 +2,48 @@ const quotes = [
   {
     quote:
       'When you go through hardships and decide not to surrender, that is strength.',
-    quthor: 'Arnold Schwarzenegger',
+    author: 'Arnold Schwarzenegger',
   },
   {
     quote: 'It is kind of fun to do the impossible.',
-    quthor: 'Walt Disney',
+    author: 'Walt Disney',
   },
   {
     quote: 'Tough times never last, but tough people do.',
-    quthor: 'Robert H. Schuller',
+    author: 'Robert H. Schuller',
   },
   {
     quote:
       'I’ve failed over and over and over again in my life and that is why I succeed.',
-    quthor: 'Michael Jordan',
+    author: 'Michael Jordan',
   },
   {
     quote: 'Grind Hard, Shine Hard.',
-    quthor: 'Dwayne Johnson',
+    author: 'Dwayne Johnson',
   },
   {
     quote:
       'The road to success and the road to failure are almost exactly the same.',
-    quthor: 'Colin R. Davis',
+    author: 'Colin R. Davis',
   },
   {
     quote:
       'Success is walking from failure to failure with no loss of enthusiasm.',
-    quthor: 'Winston Churchill',
+    author: 'Winston Churchill',
   },
   {
     quote: 'In order to succeed, we must first believe that we can.',
-    quthor: 'Nikos Kazantzakis',
+    author: 'Nikos Kazantzakis',
   },
   {
     quote:
       'If you don’t get out of the box you’ve been raised in, you won’t understand how much bigger the world is.',
-    quthor: 'Angelina Jolie',
+    author: 'Angelina Jolie',
   },
   {
     quote:
       'But I know, somehow, that only when it is dark enough can you see the stars.',
-    quthor: 'Martin Luther King, Jr',
+    author: 'Martin Luther King, Jr',
   },
 ];
 

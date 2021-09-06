@@ -3,22 +3,30 @@ const inputName = document.getElementById('name');
 const inputUrl = document.getElementById('url');
 const shortcut = document.querySelector('.short-cut-list');
 
+function deleteShortCut(event) {
+  const link = event.target.parentElement;
+  link.remove();
+  console.log(event.target.parentElement);
+}
+
 function addShortCut(newShortCut) {
-  const link = document.createElement('a');
   const div = document.createElement('div');
+  const link = document.createElement('a');
+  const span = document.createElement('span');
   const p = document.createElement('p');
-  const btn = document.createElement('button');
+  const button = document.createElement('button');
 
   link.setAttribute('href', inputUrl.value);
-  console.log(inputUrl.value);
-  div.innerText = '📌';
-  btn.innerText = '❌';
+  span.innerText = '📌';
+  button.innerText = '❌';
+  button.addEventListener('click', deleteShortCut);
 
-  shortcut.appendChild(link);
-  link.appendChild(div);
+  shortcut.appendChild(div);
+  div.appendChild(link);
+  link.appendChild(span);
   link.appendChild(p);
-  shortcut.appendChild(btn);
   p.innerText = newShortCut;
+  div.appendChild(button);
 }
 
 function handleSubmit(event) {

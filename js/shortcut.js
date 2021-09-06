@@ -11,9 +11,10 @@ function saveShortCut() {
 }
 
 function deleteShortCut(event) {
-  const link = event.target.parentElement;
-  link.remove();
-  console.log(event.target.parentElement);
+  const div = event.target.parentElement;
+  div.remove();
+  shortcutArr = shortcutArr.filter((item) => item.id !== parseInt(div.id));
+  saveShortCut();
 }
 
 function addShortCut(newShortCut) {
@@ -22,6 +23,7 @@ function addShortCut(newShortCut) {
   const span = document.createElement('span');
   const p = document.createElement('p');
   const button = document.createElement('button');
+  div.id = newShortCut.id;
 
   link.setAttribute('href', inputUrl.value);
   span.innerText = '📌';
@@ -39,6 +41,7 @@ function addShortCut(newShortCut) {
 function handleSubmit(event) {
   event.preventDefault();
   const newShort = {
+    id: Date.now(),
     Name: inputName.value,
     Url: inputUrl.value,
   };

@@ -3,6 +3,13 @@ const inputName = document.getElementById('name');
 const inputUrl = document.getElementById('url');
 const shortcut = document.querySelector('.short-cut-list');
 
+const SHORTCUT_KEY = 'ShortCut';
+let shortcutArr = [];
+
+function saveShortCut() {
+  localStorage.setItem(SHORTCUT_KEY, JSON.stringify(shortcutArr));
+}
+
 function deleteShortCut(event) {
   const link = event.target.parentElement;
   link.remove();
@@ -25,19 +32,30 @@ function addShortCut(newShortCut) {
   div.appendChild(link);
   link.appendChild(span);
   link.appendChild(p);
-  p.innerText = newShortCut;
+  p.innerText = newShortCut.Name;
   div.appendChild(button);
 }
 
 function handleSubmit(event) {
   event.preventDefault();
-  const newName = inputName.value;
-  const newUrl = inputUrl.value;
-  addShortCut(newName, newUrl);
+  const newShort = {
+    Name: inputName.value,
+    Url: inputUrl.value,
+  };
+  addShortCut(newShort);
   inputName.value = '';
   inputUrl.value = '';
+  shortcutArr.push(newShort);
+  saveShortCut();
 
   document.querySelector('.modal').classList.add('hidden');
 }
 
 modalForm.addEventListener('submit', handleSubmit);
+
+const saveShort = localStorage.getItem(SHORTCUT_KEY);
+if (saveShort !== null) {
+  const parsedShortCut = JSON.parse(saveShort);
+  shortcutArr = parsedShortCut;
+  parsedShortCut.forEach(addShortCut);
+}

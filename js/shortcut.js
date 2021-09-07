@@ -5,6 +5,8 @@ const shortcut = document.querySelector('.short-cut-list');
 
 const SHORTCUT_KEY = 'ShortCut';
 let shortcutArr = [];
+let uniqueId =
+  Date.now().toString(36) + Math.random().toString(36).substring(2);
 
 function saveShortCut() {
   localStorage.setItem(SHORTCUT_KEY, JSON.stringify(shortcutArr));
@@ -25,7 +27,7 @@ function addShortCut(newShortCut) {
   const button = document.createElement('button');
   div.id = newShortCut.id;
 
-  link.setAttribute('href', inputUrl.value);
+  link.setAttribute('href', newShortCut.Url);
   span.innerText = '📌';
   button.innerText = '❌';
   button.addEventListener('click', deleteShortCut);
@@ -41,7 +43,7 @@ function addShortCut(newShortCut) {
 function handleSubmit(event) {
   event.preventDefault();
   const newShort = {
-    id: Date.now(),
+    id: uniqueId,
     Name: inputName.value,
     Url: inputUrl.value,
   };

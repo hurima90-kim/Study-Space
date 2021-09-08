@@ -159,6 +159,11 @@ input::placeholder {
   color: #fff;
 }
 
+.short-cut-list img {
+  width: 40px;
+  height: 40px;
+}
+
 .modal-button {
   width: 80px;
   text-align: center;

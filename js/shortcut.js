@@ -23,18 +23,21 @@ function addShortCut(newShortCut) {
   const div = document.createElement('div');
   const link = document.createElement('a');
   const span = document.createElement('span');
+  const img = document.createElement('img');
   const p = document.createElement('p');
   const button = document.createElement('button');
   div.id = newShortCut.id;
+  const favicon = `https://s2.googleusercontent.com/s2/favicons?domain_url=${newShortCut.Url}`;
 
   link.setAttribute('href', newShortCut.Url);
-  span.innerText = '📌';
+  img.setAttribute('src', favicon);
   button.innerText = '❌';
   button.addEventListener('click', deleteShortCut);
 
   shortcut.appendChild(div);
   div.appendChild(link);
   link.appendChild(span);
+  span.appendChild(img);
   link.appendChild(p);
   p.innerText = newShortCut.Name;
   div.appendChild(button);

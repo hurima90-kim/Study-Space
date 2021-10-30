@@ -15,7 +15,7 @@ function OrderPage() {
         <div>
           <h2>Total Price: </h2>
           <br />
-          <button>Order</button>
+          <button>주문하기</button>
         </div>
       </div>
     </div>

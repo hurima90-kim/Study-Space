@@ -1,11 +1,13 @@
 import "./App.css";
-import { useState } from "react";
 import OrderPage from "./pages/OrderPage/OrderPage";
+import { OrderContextProvider } from "./contexts/OrderContest";
 
 function App() {
   return (
     <div style={{ padding: "4rem" }}>
-      <OrderPage />
+      <OrderContextProvider>
+        <OrderPage />
+      </OrderContextProvider>
     </div>
   );
 }

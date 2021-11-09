@@ -46,6 +46,9 @@ const BeerList = () => {
       ]}
       data={posts}
       icons={tableIcons}
+      options={{
+        selection: true,
+      }}
     />
   );
 };

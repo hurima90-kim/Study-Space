@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         font-family: 'Noto Sans KR', sans-serif,Slack-Lato,appleLogo;
         background-color: #fff;
+        font-size: 16px;
     };
 
     button{

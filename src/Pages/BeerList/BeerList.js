@@ -5,12 +5,6 @@ import { tableIcons } from "./tableIcons";
 
 const BeerList = () => {
   const [posts, setPosts] = useState([]);
-  //   try {
-  //     const response = await axios.get("https://api.punkapi.com/v2/beers");
-  //     console.log(response.data);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
   useEffect(() => {
     async function fetchData() {
       try {
@@ -41,7 +35,7 @@ const BeerList = () => {
         { title: "Name", field: "name" },
         { title: "Tagline", field: "tagline" },
         { title: "First Brewed", field: "first_brewed" },
-        { title: "Description", field: "description" },
+        // { title: "Description", field: "description" },
         { title: "Abv", field: "abv" },
       ]}
       data={posts}
@@ -49,6 +43,7 @@ const BeerList = () => {
       options={{
         selection: true,
       }}
+      style={{ padding: "20px" }}
     />
   );
 };

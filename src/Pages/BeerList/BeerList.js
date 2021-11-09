@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import MaterialTable, { MTableToolbar } from "material-table";
+import MaterialTable from "material-table";
+import { tableIcons } from "./tableIcons";
 
 const BeerList = () => {
   const [posts, setPosts] = useState([]);
@@ -32,7 +33,7 @@ const BeerList = () => {
           render: (rowData) => (
             <img
               src={rowData.image_url}
-              style={{ width: 40, borderRadius: "50%" }}
+              style={{ width: 40, height: 100, borderRadius: "50%" }}
               alt="img"
             />
           ),
@@ -41,8 +42,10 @@ const BeerList = () => {
         { title: "Tagline", field: "tagline" },
         { title: "First Brewed", field: "first_brewed" },
         { title: "Description", field: "description" },
+        { title: "Abv", field: "abv" },
       ]}
       data={posts}
+      icons={tableIcons}
     />
   );
 };

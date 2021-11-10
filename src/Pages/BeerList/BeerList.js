@@ -2,48 +2,38 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import { tableIcons } from "./tableIcons";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  requestedFetchList,
+  updateTableColumns,
+} from "../../Modules/Actions/Actions";
 
 const BeerList = () => {
-  const [posts, setPosts] = useState([]);
+  const dispatch = useDispatch();
+  const columns = useSelector((state) => state.columnsReducer.columns);
+  const beerList = useSelector((state) => state.columnsReducer.beerList);
+
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get("https://api.punkapi.com/v2/beers");
-        setPosts(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    fetchData();
+    dispatch(requestedFetchList());
   }, []);
+
+  const changeTableColumn = (sourceIndex, destinationIndex, columns) => {
+    let value = columns.splice(sourceIndex, 1);
+    columns.splice(destinationIndex, 0, value[0]);
+    dispatch(updateTableColumns(columns));
+  };
 
   return (
     <MaterialTable
       title="Beer List"
-      columns={[
-        {
-          title: "Thumbnail",
-          field: "image_Url",
-          render: (rowData) => (
-            <img
-              src={rowData.image_url}
-              style={{ width: 40, height: 100, borderRadius: "50%" }}
-              alt="img"
-            />
-          ),
-        },
-        { title: "Name", field: "name" },
-        { title: "Tagline", field: "tagline" },
-        { title: "First Brewed", field: "first_brewed" },
-        // { title: "Description", field: "description" },
-        { title: "Abv", field: "abv" },
-      ]}
-      data={posts}
+      columns={columns}
+      data={beerList}
       icons={tableIcons}
-      options={{
-        selection: true,
-      }}
+      options={{ draggable: true }}
       style={{ padding: "20px" }}
+      onColumnDragged={(sourceIndex, destinationIndex) =>
+        changeTableColumn(sourceIndex, destinationIndex, columns)
+      }
     />
   );
 };

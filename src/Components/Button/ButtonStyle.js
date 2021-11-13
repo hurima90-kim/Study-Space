@@ -15,6 +15,7 @@ const Btn = styled(Link)`
   );
   border-radius: 5px;
   color: #fff;
+  margin-bottom: 20px;
 `;
 
 export const style = {

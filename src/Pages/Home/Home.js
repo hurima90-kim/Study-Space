@@ -15,7 +15,7 @@ const Home = () => {
         <br />
         불필요한 수기 업무에서 벗어나 중요한 영업 활동에 집중하세요.
       </MainDesc>
-      <Button />
+      <Button link="/beerlist" text="맥주 리스트 보기" />
     </MainContainer>
   );
 };

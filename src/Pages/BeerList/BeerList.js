@@ -10,6 +10,8 @@ import {
 import Modal from "../../Components/Modal/Modal";
 import "antd/dist/antd.css";
 import { Select } from "antd";
+import Button from "../../Components/Button/Button";
+import styled from "styled-components";
 
 const BeerList = () => {
   const dispatch = useDispatch();
@@ -44,6 +46,10 @@ const BeerList = () => {
 
   return (
     <>
+      <ButtonContainer>
+        <Button link="/home" text="뒤로가기" />
+        <Button link="/cart" text="장바구니" />
+      </ButtonContainer>
       <Select
         // mode="multiple"
         style={{ width: "100%" }}
@@ -69,3 +75,8 @@ const BeerList = () => {
 };
 
 export default BeerList;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;

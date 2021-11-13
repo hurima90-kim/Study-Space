@@ -1,10 +1,6 @@
 import { put, takeLatest } from "redux-saga/effects";
 import axios from "axios";
-import {
-  requestedFetchList,
-  successFetchList,
-  failureFetchList,
-} from "../Actions/Actions";
+import { successFetchList, failureFetchList } from "../Actions/Actions";
 import { REQUESTED_FETCH_LIST } from "../types";
 
 export function* fetchData() {

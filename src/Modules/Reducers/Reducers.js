@@ -4,10 +4,14 @@ import {
   FAILURE_FETCH_LIST,
   GET_TABLE_COLUMNS,
   UPDATE_TABLE_COLUMNS,
+  OPEN_MODAL,
+  CLOSE_MODAL,
+  GET_FILTERING,
 } from "../types";
 
 const initialState = {
   beerList: [],
+  filterBeerList: [],
   columns: [
     {
       title: "Thumbnail",
@@ -22,9 +26,14 @@ const initialState = {
     },
     { title: "Name", field: "name" },
     { title: "Tagline", field: "tagline" },
-    { title: "Abv", field: "abv" },
+    { title: "ABV", field: "abv" },
+    { title: "IBU", field: "ibu" },
+    { title: "SRM", field: "srm" },
+    { title: "PH", field: "ph" },
     { title: "First Brewed", field: "first_brewed" },
   ],
+  detail: false,
+  props: [],
 };
 
 const columnsReducer = (state = initialState, action) => {
@@ -51,6 +60,23 @@ const columnsReducer = (state = initialState, action) => {
       return {
         ...state,
         columns: action.columns,
+      };
+    case OPEN_MODAL:
+      return {
+        ...state,
+        detail: true,
+        props: action.props,
+      };
+    case CLOSE_MODAL:
+      return {
+        ...state,
+        detail: false,
+        props: [],
+      };
+    case GET_FILTERING:
+      return {
+        ...state,
+        filterBeerList: [],
       };
     default:
       return state;

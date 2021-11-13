@@ -4,6 +4,9 @@ import {
   FAILURE_FETCH_LIST,
   GET_TABLE_COLUMNS,
   UPDATE_TABLE_COLUMNS,
+  OPEN_MODAL,
+  CLOSE_MODAL,
+  GET_FILTERING,
 } from "../types";
 
 export const requestedFetchList = () => ({
@@ -27,4 +30,18 @@ export const getTableColumns = () => ({
 export const updateTableColumns = (columns) => ({
   type: UPDATE_TABLE_COLUMNS,
   columns,
+});
+
+export const showModal = (props) => ({
+  type: OPEN_MODAL,
+  props,
+});
+
+export const closeModal = () => ({
+  type: CLOSE_MODAL,
+});
+
+export const getFiltering = (index) => ({
+  type: GET_FILTERING,
+  index,
 });

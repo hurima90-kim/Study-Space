@@ -64,6 +64,7 @@ const BeerList = () => {
         data={filterBeerList.length ? filterBeerList : beerList}
         icons={tableIcons}
         style={{ padding: "20px" }}
+        options={{ actionsColumnIndex: 1 }}
         onColumnDragged={(sourceIndex, destinationIndex) =>
           changeTableColumn(sourceIndex, destinationIndex, columns)
         }

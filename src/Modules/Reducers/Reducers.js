@@ -74,10 +74,21 @@ const columnsReducer = (state = initialState, action) => {
         props: [],
       };
     case GET_FILTERING:
-      return {
-        ...state,
-        filterBeerList: [],
-      };
+      if (action.index) {
+        let min = Math.min(Number(action.index));
+        let max = Math.max(Number(action.index));
+        return {
+          ...state,
+          filterBeerList: state.beerList.filter(
+            (beer) => beer.abv >= min && beer.abv <= max + 1
+          ),
+        };
+      } else {
+        return {
+          ...state,
+          filterBeerList: [],
+        };
+      }
     default:
       return state;
   }

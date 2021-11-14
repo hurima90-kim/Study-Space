@@ -1,7 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { style } from "./ModalStyle";
-import { closeModal } from "../../Modules/Actions/Actions";
+import { closeModal, requestedAddCart } from "../../Modules/Actions/Actions";
+import Button from "../../Components/Button/Button";
 
 const Modal = (data) => {
   const dispatch = useDispatch();
@@ -9,7 +10,7 @@ const Modal = (data) => {
   return (
     <ModalBackground>
       <ModalContainer>
-        <Button onClick={() => dispatch(closeModal())}> X </Button>
+        <CloseButton onClick={() => dispatch(closeModal())}> X </CloseButton>
         <Title>
           <h1>{data.data.name}</h1>
           <p>{data.data.tagline}</p>
@@ -25,16 +26,11 @@ const Modal = (data) => {
           <p>ph: {data.data.ph}</p>
         </Body>
         <Footer>
-          <button onClick={() => dispatch(closeModal())}>Cancel</button>
-          <button
-            style={{
-              border: "1px solid red",
-              background: "none",
-              color: "red",
-            }}
-          >
-            Add Cart
-          </button>
+          <Button text="Cancel" onClick={() => dispatch(closeModal())} />
+          <Button
+            text="Add Cart"
+            onClick={(data) => dispatch(requestedAddCart({ ...data }))}
+          />
         </Footer>
       </ModalContainer>
     </ModalBackground>
@@ -46,7 +42,7 @@ export default Modal;
 const {
   ModalBackground,
   ModalContainer,
-  Button,
+  CloseButton,
   Title,
   Body,
   ImgContainer,

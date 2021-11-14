@@ -46,7 +46,7 @@ const BeerList = () => {
     <>
       <ButtonContainer>
         <Button link="/home" text="뒤로가기" />
-        <Button link="/cart" text="장바구니" />
+        <Button link="/cartlist" text="장바구니" />
       </ButtonContainer>
       <Select
         mode="multiple"
@@ -66,7 +66,7 @@ const BeerList = () => {
         onColumnDragged={(sourceIndex, destinationIndex) =>
           changeTableColumn(sourceIndex, destinationIndex, columns)
         }
-        onRowClick={(rowData) => dispatch(showModal(rowData))}
+        onRowClick={(event, rowData) => dispatch(showModal(rowData))}
       />
     </>
   );

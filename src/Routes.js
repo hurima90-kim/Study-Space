@@ -10,6 +10,7 @@ import BeerList from "./Pages/BeerList/BeerList";
 import Home from "./Pages/Home/Home";
 import GlobalStyle from "./Styles/GlobalStyle";
 import Modal from "./Components/Modal/Modal";
+import CartList from "./Pages/CartList/CartList";
 // import ReactGA from "react-ga";
 
 const Routes = () => {
@@ -24,6 +25,7 @@ const Routes = () => {
         <Redirect exact from="/" to="/home" />
         <Route path="/home" component={Home} />
         <Route path="/beerlist" component={BeerList} />
+        <Route path="/cartlist" component={CartList} />
       </Switch>
     </Router>
   );

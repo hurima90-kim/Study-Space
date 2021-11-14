@@ -7,6 +7,10 @@ import {
   OPEN_MODAL,
   CLOSE_MODAL,
   GET_FILTERING,
+  SUCCESS_ADD_CART,
+  FAILURE_ADD_CART,
+  SUCCESS_DELETE_CART,
+  FAILURE_DELETE_CART,
 } from "../types";
 
 const initialState = {
@@ -34,10 +38,12 @@ const initialState = {
   ],
   detail: false,
   props: [],
+  cartList: [],
 };
 
 const columnsReducer = (state = initialState, action) => {
   switch (action.type) {
+    // 데이터 리스트
     case REQUESTED_FETCH_LIST:
       return {
         ...state,
@@ -52,6 +58,8 @@ const columnsReducer = (state = initialState, action) => {
         ...state,
         error: action.error,
       };
+
+    // 테이블 헤더
     case GET_TABLE_COLUMNS:
       return {
         ...state,
@@ -61,6 +69,8 @@ const columnsReducer = (state = initialState, action) => {
         ...state,
         columns: action.columns,
       };
+
+    // 모달창
     case OPEN_MODAL:
       return {
         ...state,
@@ -73,6 +83,8 @@ const columnsReducer = (state = initialState, action) => {
         detail: false,
         props: [],
       };
+
+    // 필터링
     case GET_FILTERING:
       if (action.index) {
         let min = Math.min(Number(action.index));
@@ -89,6 +101,27 @@ const columnsReducer = (state = initialState, action) => {
           filterBeerList: [],
         };
       }
+
+    // 장바구니
+    case SUCCESS_ADD_CART:
+      return {
+        ...state,
+        cartList: state.cartList.concat(action.payload),
+      };
+    case FAILURE_ADD_CART:
+      return {
+        ...state,
+        error: action.error,
+      };
+    case SUCCESS_DELETE_CART:
+      return {
+        cartList: state.cartList.filter((item) => item.id !== action.id),
+      };
+    case FAILURE_DELETE_CART:
+      return {
+        ...state,
+        error: action.error,
+      };
     default:
       return state;
   }

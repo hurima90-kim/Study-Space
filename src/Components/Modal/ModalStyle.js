@@ -24,7 +24,7 @@ const ModalContainer = styled.div`
   padding: 20px 25px;
 `;
 
-const Button = styled.button`
+const CloseButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,7 +98,7 @@ const Footer = styled.div`
 export const style = {
   ModalBackground,
   ModalContainer,
-  Button,
+  CloseButton,
   Title,
   Body,
   ImgContainer,

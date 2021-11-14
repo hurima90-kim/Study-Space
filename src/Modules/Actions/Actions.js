@@ -7,6 +7,12 @@ import {
   OPEN_MODAL,
   CLOSE_MODAL,
   GET_FILTERING,
+  REQUESTED_ADD_CART,
+  SUCCESS_ADD_CART,
+  FAILURE_ADD_CART,
+  REQUESTED_DELETE_CART,
+  SUCCESS_DELETE_CART,
+  FAILURE_DELETE_CART,
 } from "../types";
 
 export const requestedFetchList = () => ({
@@ -44,4 +50,34 @@ export const closeModal = () => ({
 export const getFiltering = (index) => ({
   type: GET_FILTERING,
   index,
+});
+
+export const requestedAddCart = (data) => ({
+  type: REQUESTED_ADD_CART,
+  data,
+});
+
+export const successAddCart = (data) => ({
+  type: SUCCESS_ADD_CART,
+  data,
+});
+
+export const failureAddCart = (error) => ({
+  type: FAILURE_ADD_CART,
+  error,
+});
+
+export const requestedDeleteCart = (id) => ({
+  type: REQUESTED_DELETE_CART,
+  id,
+});
+
+export const successDeleteCart = (id) => ({
+  type: SUCCESS_DELETE_CART,
+  id,
+});
+
+export const failureDeleteCart = (error) => ({
+  type: FAILURE_DELETE_CART,
+  error,
 });

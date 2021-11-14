@@ -37,7 +37,7 @@ const Button = styled.button`
 
 const Title = styled.div`
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 
   h1 {
     font-size: 24px;
@@ -60,11 +60,17 @@ const Body = styled.div`
     margin-bottom: 15px;
     padding: 0 25px;
   }
+`;
+
+const ImgContainer = styled.div`
+  display: flex;
+  width: 50px;
+  margin: 0 auto;
+  margin-bottom: 30px;
 
   img {
-    width: 180px;
-    margin: 0 auto;
-    margin-bottom: 20px;
+    width: 100%;
+    height: 100%;
   }
 `;
 
@@ -95,5 +101,6 @@ export const style = {
   Button,
   Title,
   Body,
+  ImgContainer,
   Footer,
 };

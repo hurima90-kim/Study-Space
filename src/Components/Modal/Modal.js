@@ -1,29 +1,31 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { style } from "./ModalStyle";
+import { closeModal } from "../../Modules/Actions/Actions";
 
-const Modal = ({ item, closeModal }) => {
-  const beerList = useSelector((state) => state.columnsReducer.beerList);
-  console.log(item);
+const Modal = (data) => {
+  const dispatch = useDispatch();
 
   return (
     <ModalBackground>
       <ModalContainer>
-        <Button onClick={() => closeModal(false)}> X </Button>
+        <Button onClick={() => dispatch(closeModal())}> X </Button>
         <Title>
-          <h1>{beerList[0].name}</h1>
-          <p>{beerList[0].tagline}</p>
+          <h1>{data.data.name}</h1>
+          <p>{data.data.tagline}</p>
         </Title>
         <Body>
-          <img src={beerList[0].image_url} alt="img" />
+          <ImgContainer>
+            <img src={data.data.image_url} alt="img" />
+          </ImgContainer>
           <h3>Description</h3>
-          <p>{beerList[0].description}</p>
-          <p>First Brewed: {beerList[0].first_brewed}</p>
-          <p>Abv: {beerList[0].abv}</p>
-          <p>ph: {beerList[0].ph}</p>
+          <p>{data.data.description}</p>
+          <p>First Brewed: {data.data.first_brewed}</p>
+          <p>Abv: {data.data.abv}</p>
+          <p>ph: {data.data.ph}</p>
         </Body>
         <Footer>
-          <button onClick={() => closeModal(false)}>Cancel</button>
+          <button onClick={() => dispatch(closeModal())}>Cancel</button>
           <button
             style={{
               border: "1px solid red",
@@ -41,4 +43,12 @@ const Modal = ({ item, closeModal }) => {
 
 export default Modal;
 
-const { ModalBackground, ModalContainer, Button, Title, Body, Footer } = style;
+const {
+  ModalBackground,
+  ModalContainer,
+  Button,
+  Title,
+  Body,
+  ImgContainer,
+  Footer,
+} = style;

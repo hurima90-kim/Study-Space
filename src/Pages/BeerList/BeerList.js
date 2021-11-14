@@ -7,6 +7,8 @@ import {
   updateTableColumns,
   getFiltering,
   showModal,
+  requestedAddCart,
+  successAddCart,
 } from "../../Modules/Actions/Actions";
 import "antd/dist/antd.css";
 import { Select } from "antd";
@@ -67,6 +69,12 @@ const BeerList = () => {
           changeTableColumn(sourceIndex, destinationIndex, columns)
         }
         onRowClick={(event, rowData) => dispatch(showModal(rowData))}
+        actions={[
+          () => ({
+            icon: () => <div aria-label="Add Cart">O</div>,
+            onClick: (data) => dispatch(successAddCart({ ...data })),
+          }),
+        ]}
       />
     </>
   );

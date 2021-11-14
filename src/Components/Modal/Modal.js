@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { style } from "./ModalStyle";
-import { closeModal, requestedAddCart } from "../../Modules/Actions/Actions";
+import { closeModal } from "../../Modules/Actions/Actions";
 import Button from "../../Components/Button/Button";
 
 const Modal = (data) => {
@@ -27,10 +27,6 @@ const Modal = (data) => {
         </Body>
         <Footer>
           <Button text="Cancel" onClick={() => dispatch(closeModal())} />
-          <Button
-            text="Add Cart"
-            onClick={(data) => dispatch(requestedAddCart({ ...data }))}
-          />
         </Footer>
       </ModalContainer>
     </ModalBackground>

@@ -1,16 +1,16 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-const CartItem = (data) => {
-  console.log(data);
+const CartItem = () => {
   const dispatch = useDispatch();
+  const cartList = useSelector((state) => state.columnsReducer.cartList);
+  console.log(cartList);
 
   return (
-    // <div key={item.id}>
-    //   <div>{item.name}</div>
-    //   <div>{item.image_url}</div>
-    // </div>
-    <div></div>
+    <div key={cartList.id}>
+      <div>{cartList.name}</div>
+      <div>{cartList.image_url}</div>
+    </div>
   );
 };
 

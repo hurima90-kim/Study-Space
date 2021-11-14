@@ -54,12 +54,12 @@ export const getFiltering = (index) => ({
 
 export const requestedAddCart = (data) => ({
   type: REQUESTED_ADD_CART,
-  data,
+  payload: data,
 });
 
 export const successAddCart = (data) => ({
   type: SUCCESS_ADD_CART,
-  data,
+  payload: data,
 });
 
 export const failureAddCart = (error) => ({

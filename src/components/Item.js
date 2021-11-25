@@ -9,6 +9,12 @@ const Item = ({ item }) => {
 
   const showSubMenu = () => setSubMenu(!subMenu);
 
+  const mapData = item.items.map((data) => (
+    <ul className="dropdown" key={data.itemUid}>
+      <li>{data.name}</li>
+    </ul>
+  ));
+
   return (
     <>
       <div
@@ -30,11 +36,7 @@ const Item = ({ item }) => {
         </div>
       </div>
       {subMenu
-        ? item.items.map((data) => (
-            <ul className="dropdown" key={data.itemUid}>
-              <li>{data.name}</li>
-            </ul>
-          ))
+        ? mapData
         : item.groupUid === null
         ? item.items.map((data) => (
             <ul className="dropdown null" key={data.itemUid}>

@@ -4,9 +4,6 @@ import { ListData } from "../data/data";
 import Item from "./Item";
 
 const List = () => {
-  let a = ListData.indexOf("null");
-  console.log(a);
-
   return (
     <>
       <div className="list_wrap">

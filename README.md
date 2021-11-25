@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+<p align='middle'>
+<a href='https://github.com/hurima90-kim/dreamys'><img src='https://user-images.githubusercontent.com/66353903/143431132-89557689-3484-4312-82c2-173a4fc1c8a8.png' width="300px;" alt="LiveMD" /></a></p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align='middle'><a href=#>배포후 주소변경 예정</a></h1>
 
-## Available Scripts
 
-In the project directory, you can run:
+<br/>
 
-### `yarn start`
+## 📌 프로젝트 소개
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+###  꿈많은청년들 개발 과제
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br/>
 
-### `yarn test`
+<details>
+    <summary><STRONG>
+       📚 과제 요구사항 보기
+        <STRONG></summary>
+    <div markdown="1">
+<h3>디자인과 소스를 바탕으로 리스트 구현</h3>
+- 함수형 컴포넌트 사용<br/>
+- 데이터는 data.js의 ListData 사용<br/>
+- 그룹, 그룹에 속하지 않는 아이템순으로 정렬<br/>
+- 그룹 안에 아이템이 있는 경우, 그룹 toggle 기능 구현<br/>
+- 디자인은 피그마와 동일하게 구현<br/><br/>
+</div>
+</details>
+<br/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📑 구현 목록
+![image](https://user-images.githubusercontent.com/66353903/143433232-215234cf-6f42-435d-b8bf-e571877cfe6a.png)
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`List 컴포넌트`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Item컴포넌틑 map함수를 이용하여 렌더링
+- 전체를 감싸주는 className="list_wrap" div생성
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`Item 컴포넌트`
 
-### `yarn eject`
+- 주어진 svg아이콘들을 컴포넌트화하여 사용
+- subMenu에 토글버튼의 상태를 저장
+- showSubMenu() 함수를 생성하여 토글기능 구현
+- 반복되는 사용 Listdata.items의 값을 map함수로 'mapData' 변수에 저장하여 재사용
+- 각 아이콘은 조건에 맞는 렌더링을 위해 삼항연산자를 사용하여 출력
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 👨‍💻 실행 방법
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 설치
 
-## Learn More
+`npm install`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 실행
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`npm start`
 
-### Code Splitting
+<br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📂프로젝트 구조
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+| 폴더 / 파일 | 설명                               |
+| ----------- | ---------------------------------- |
+| assets      | 꿈많은청년들 로고 및 아이콘.            |
+| components  | List와 Item Component로 구성 |
+| styles      | 기본 Style.                   |
+| data        | 주어진 data.js 파일 배치    |
+| App.js      | List Component를 Import하여 렌더링        |
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<br/>

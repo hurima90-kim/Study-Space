@@ -1,4 +1,4 @@
-const ListData = [
+export const ListData = [
   {
     groupUid: 1,
     name: "Group1",

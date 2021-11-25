@@ -17,24 +17,28 @@ const Item = ({ item }) => {
 
   return (
     <>
-      <div
-        className="list_container"
-        onClick={item.groupUid !== null && showSubMenu}
-      >
-        <div className="list_items">
-          <div className="fold_icon">
-            {item.items.length !== 0 && item.groupUid !== null && !subMenu ? (
-              <Close />
-            ) : item.items.length !== 0 && item.groupUid !== null && subMenu ? (
-              <Open />
-            ) : null}
+      {item.groupUid !== null ? (
+        <div
+          className="list_container"
+          onClick={item.groupUid !== null && showSubMenu}
+        >
+          <div className="list_items">
+            <div className="fold_icon">
+              {item.items.length !== 0 && item.groupUid !== null && !subMenu ? (
+                <Close />
+              ) : item.items.length !== 0 &&
+                item.groupUid !== null &&
+                subMenu ? (
+                <Open />
+              ) : null}
+            </div>
+            <div className="group_icon">
+              {item.groupUid === null ? "" : <Group />}
+            </div>
+            <p>{item.name}</p>
           </div>
-          <div className="group_icon">
-            {item.groupUid === null ? "" : <Group />}
-          </div>
-          <p>{item.name}</p>
         </div>
-      </div>
+      ) : null}
       {subMenu
         ? mapData
         : item.groupUid === null

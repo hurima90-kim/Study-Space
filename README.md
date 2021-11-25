@@ -1,7 +1,7 @@
 <p align='middle'>
 <a href='https://github.com/hurima90-kim/dreamys'><img src='https://user-images.githubusercontent.com/66353903/143431132-89557689-3484-4312-82c2-173a4fc1c8a8.png' width="300px;" alt="LiveMD" /></a></p>
 
-<h1 align='middle'><a href=#>배포후 주소변경 예정</a></h1>
+<h1 align='middle'><a href='https://dreamys.netlify.app/'>https://dreamys.netlify.app/</a></h1>
 
 
 <br/>

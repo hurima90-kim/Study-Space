@@ -1,5 +1,5 @@
 import React from "react";
-import "./ListStyle.css";
+import "../styles/ListStyle.css";
 import { ListData } from "../data/data";
 import Item from "./Item";
 

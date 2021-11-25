@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ListStyle.css";
+import "../styles/ListStyle.css";
 import { ReactComponent as Group } from "../assets/group.svg";
 import { ReactComponent as Open } from "../assets/fold.svg";
 import { ReactComponent as Close } from "../assets/unfold.svg";

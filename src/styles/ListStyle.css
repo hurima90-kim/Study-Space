@@ -54,11 +54,12 @@
   font-weight: 400;
   color: #757575;
   line-height: 36px;
-  padding-left: 50px;
+  padding-left: 80px;
 }
 
 .dropdown.null {
   line-height: 36px;
+  margin-left: -30px;
 }
 
 .dropdown:hover {

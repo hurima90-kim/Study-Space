@@ -1,0 +1,32 @@
+{
+  "name": "twitter-clone-front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hurima90-kim/Twitter-Clone.git"
+  },
+  "author": "hurima90-kim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hurima90-kim/Twitter-Clone/issues"
+  },
+  "homepage": "https://github.com/hurima90-kim/Twitter-Clone#readme",
+  "dependencies": {
+    "next": "^9.5.5",
+    "prop-types": "^15.7.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0"
+  }
+}

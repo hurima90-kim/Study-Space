@@ -1,11 +1,15 @@
 import React from "react";
 import AppLayout from "../components/AppLayout";
+import Head from "next/head";
 
 const Signup = () => {
   return (
-    <AppLayout>
-      <div>Sign Up Page</div>
-    </AppLayout>
+    <>
+      <Head>
+        <title>Sign Up | Twitter</title>
+      </Head>
+      <AppLayout>Sign Up</AppLayout>
+    </>
   );
 };
 

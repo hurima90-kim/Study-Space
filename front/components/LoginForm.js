@@ -24,7 +24,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
     setPassword(e.target.value);
   }, []);
 
-  //   const style = useMemo(() => ({ marginTop: 10 }), []);
+  // const style = useMemo(() => ({ marginTop: 10 }), []);
 
   const onSubmitForm = useCallback(() => {
     //onFinish는 이미 preventDefault가 적용되어있다.

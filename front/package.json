@@ -22,9 +22,12 @@
     "antd": "^4.17.2",
     "babel-plugin-styled-components": "^2.0.2",
     "next": "^9.5.5",
+    "next-redux-wrapper": "^6.0.2",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "redux": "^4.1.2",
+    "redux-devtools-extension": "^2.13.9",
     "styled-components": "^5.3.3",
     "styled-reset": "^4.3.4"
   },

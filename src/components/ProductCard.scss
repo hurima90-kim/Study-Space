@@ -1,0 +1,28 @@
+.productCard_wrapper {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  margin: 0 auto;
+  border: 1px solid gray;
+  border-radius: 10px;
+  word-wrap: break-word;
+  margin-bottom: 20px;
+
+  div {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+.productCard_img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.productCard_price {
+  margin: 15px 0;
+  padding: 0;
+}

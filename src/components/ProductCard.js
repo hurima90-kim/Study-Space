@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import "./ProductCard.scss";
+import Rating from "./Rating";
 import formatCurrency from "format-currency";
 import CartContext from "../context/cart/CartContext";
 
@@ -16,6 +17,12 @@ const ProductCard = ({ product }) => {
         <h4>{product.name}</h4>
         <div className="productCard_price">
           <h5>{formatCurrency(`${product.price}`, options)}</h5>
+        </div>
+        <div className="productCard_rating">
+          <Rating
+            value={product.rating}
+            text={`${product.numReviews} reviews`}
+          />
         </div>
         <button
           className="productCard_button"

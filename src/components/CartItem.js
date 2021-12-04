@@ -7,8 +7,6 @@ const CartItem = ({ item }) => {
   const { removeItem } = useContext(CartContext);
   let options = { format: "%s%v", symbol: "$" };
 
-  console.log(item);
-
   return (
     <li className="cartItem">
       <img src={item.image} alt="product" />

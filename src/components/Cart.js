@@ -32,7 +32,7 @@ const Cart = () => {
             )}
           </div>
           <div className="cart_total">
-            <div>Cart Total</div>
+            <div>Total Price</div>
             <div style={{ marginLeft: "5" }}>
               {formatCurreny(
                 cartItem.reduce((amount, item) => item.price + amount, 0),

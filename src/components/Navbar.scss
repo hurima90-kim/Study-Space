@@ -1,8 +1,9 @@
 nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   height: 50px;
+  padding: 0 50px;
   background-color: #000;
   color: #fff;
   position: fixed;

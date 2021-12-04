@@ -3,7 +3,7 @@ import "./Navbar.scss";
 import CartContext from "../context/cart/CartContext";
 
 const Navbar = () => {
-  const { cartItem } = useContext(CartContext);
+  const { cartItem, showHideCart } = useContext(CartContext);
 
   return (
     <nav>
@@ -16,7 +16,11 @@ const Navbar = () => {
       </div>
       <div className="nav_right">
         <div className="cart_icon">
-          <i className="fa fa-shopping-cart" aria-hidden="true" />
+          <i
+            className="fa fa-shopping-cart"
+            aria-hidden="true"
+            onClick={showHideCart}
+          />
           {cartItem.length > 0 && (
             <div className="item_count">
               <span>{cartItem.length}</span>

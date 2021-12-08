@@ -13,7 +13,7 @@ const ErrorMessage = styled.div`
 
 const Signup = () => {
   const dispatch = useDispatch();
-  const { signUpLoading } = useSelector((state) => state.user);
+  const { me, signUpLoading } = useSelector((state) => state.user);
   const [email, onChangeEmail] = useInput("");
   const [nickname, onChangeNickname] = useInput("");
   const [password, onChangePassword] = useInput("");
@@ -24,15 +24,15 @@ const Signup = () => {
 
   const onChangePasswordCheck = useCallback(
     (e) => {
-      setPasswordCheck(e.target.value);
       setPasswordError(e.target.value !== password);
+      setPasswordCheck(e.target.value);
     },
     [password]
   );
 
   const onChangeTerm = useCallback((e) => {
-    setTerm(e.target.checked);
     setTermError(false);
+    setTerm(e.target.checked);
   });
 
   const onSubmit = useCallback(() => {

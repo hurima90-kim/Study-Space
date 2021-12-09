@@ -1,35 +1,41 @@
-import { Button, Card, Popover, Avatar, List, Comment } from "antd";
+import React, { useState, useCallback } from "react";
+import { Card, Button, Avatar, List, Comment, Popover } from "antd";
+import PropTypes from "prop-types";
 import {
   RetweetOutlined,
+  HeartTwoTone,
   HeartOutlined,
   MessageOutlined,
   EllipsisOutlined,
-  HeartTwoTone,
 } from "@ant-design/icons";
-import React, { useCallback, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import PropTypes from "prop-types";
-import PostImages from "./PostImages";
+import { useSelector, useDispatch } from "react-redux";
+import styled from "styled-components";
+import Link from "next/link";
+
 import CommentForm from "./CommentForm";
 import PostCardContent from "./PostCardContent";
+import PostImages from "./PostImages";
+import FollowButton from "./FollowButton";
 import { REMOVE_POST_REQUEST } from "../reducers/post";
+
+const CardWrapper = styled.div`
+  margin-bottom: 20px;
+`;
 
 const PostCard = ({ post }) => {
   const dispatch = useDispatch();
   const { removePostLoading } = useSelector((state) => state.post);
-  const [liked, setLiked] = useState(false);
   const [commentFormOpened, setCommentFormOpened] = useState(false);
-
-  const id = useSelector((state) => state.user.me?.id);
-  // const id = useSelector((state) => state.user.me && state.user.me.id);
-  // const id = me && me.id;
-
-  const onToggleLike = useCallback(() => {
-    setLiked((prev) => !prev);
-  }, []);
+  const [liked, setLiked] = useState(false);
+  const { me } = useSelector((state) => state.user);
+  const id = me && me.id;
 
   const onToggleComment = useCallback(() => {
     setCommentFormOpened((prev) => !prev);
+  }, []);
+
+  const onToggleLike = useCallback(() => {
+    setLiked((prev) => !prev);
   }, []);
 
   const onRemovePost = useCallback(() => {
@@ -40,7 +46,7 @@ const PostCard = ({ post }) => {
   }, []);
 
   return (
-    <div style={{ marginBottom: 20 }}>
+    <CardWrapper key={post.id}>
       <Card
         cover={post.Images[0] && <PostImages images={post.Images} />}
         actions={[
@@ -54,12 +60,12 @@ const PostCard = ({ post }) => {
           ) : (
             <HeartOutlined key="heart" onClick={onToggleLike} />
           ),
-          <MessageOutlined key="comment" onClick={onToggleComment} />,
+          <MessageOutlined key="message" onClick={onToggleComment} />,
           <Popover
-            key="more"
+            key="ellipsis"
             content={
               <Button.Group>
-                {id && post.User.id === id ? (
+                {id && post.UserId === id ? (
                   <>
                     <Button>수정</Button>
                     <Button
@@ -79,6 +85,7 @@ const PostCard = ({ post }) => {
             <EllipsisOutlined />
           </Popover>,
         ]}
+        extra={<FollowButton post={post} />}
       >
         <Card.Meta
           avatar={<Avatar>{post.User.nickname[0]}</Avatar>}
@@ -87,25 +94,34 @@ const PostCard = ({ post }) => {
         />
       </Card>
       {commentFormOpened && (
-        <div>
+        <>
           <CommentForm post={post} />
           <List
-            header={`${post.Comments.length}개의 댓글`}
+            header={`${post.Comments ? post.Comments.length : 0} 댓글`}
             itemLayout="horizontal"
-            dataSource={post.Comments}
+            dataSource={post.Comments || []}
             renderItem={(item) => (
               <li>
                 <Comment
                   author={item.User.nickname}
-                  avatar={<Avatar>{item.User.nickname[0]}</Avatar>}
+                  avatar={
+                    <Link
+                      href={{ pathname: "/user", query: { id: item.User.id } }}
+                      as={`/user/${item.User.id}`}
+                    >
+                      <a>
+                        <Avatar>{item.User.nickname[0]}</Avatar>
+                      </a>
+                    </Link>
+                  }
                   content={item.content}
                 />
               </li>
             )}
           />
-        </div>
+        </>
       )}
-    </div>
+    </CardWrapper>
   );
 };
 
@@ -113,10 +129,11 @@ PostCard.propTypes = {
   post: PropTypes.shape({
     id: PropTypes.number,
     User: PropTypes.object,
+    UserId: PropTypes.number,
     content: PropTypes.string,
     createdAt: PropTypes.object,
-    Comments: PropTypes.arrayOf(PropTypes.object),
-    Images: PropTypes.arrayOf(PropTypes.object),
+    Comments: PropTypes.arrayOf(PropTypes.any),
+    Images: PropTypes.arrayOf(PropTypes.any),
   }).isRequired,
 };
 

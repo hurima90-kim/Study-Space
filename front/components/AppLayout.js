@@ -30,28 +30,22 @@ const Global = createGlobalStyle`
 
 const AppLayout = ({ children }) => {
   const { me } = useSelector((state) => state.user);
-
   return (
     <div>
       <Global />
       <Menu mode="horizontal">
         <Menu.Item key="home">
           <Link href="/">
-            <a>Node Bird</a>
+            <a>노드버드</a>
           </Link>
         </Menu.Item>
         <Menu.Item key="profile">
           <Link href="/profile">
-            <a>Profile</a>
+            <a>프로필</a>
           </Link>
         </Menu.Item>
         <Menu.Item key="mail">
-          <SearchInput enterButton />
-        </Menu.Item>
-        <Menu.Item key="signup">
-          <Link href="/signup">
-            <a>Sign Up</a>
-          </Link>
+          <Input.Search enterButton style={{ verticalAlign: "middle" }} />
         </Menu.Item>
       </Menu>
       <Row gutter={8}>
@@ -62,13 +56,12 @@ const AppLayout = ({ children }) => {
           {children}
         </Col>
         <Col xs={24} md={6}>
-          {/* target="_black"를 사용할 때 보안위협을 사라지기 하기 위해 rel속성 작성 */}
           <a
-            href="https://github.com/hurima90-kim"
+            href="https://www.zerocho.com"
             target="_blank"
             rel="noreferrer noopener"
           >
-            Made by Jason Kim
+            Made by ZeroCho
           </a>
         </Col>
       </Row>

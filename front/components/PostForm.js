@@ -1,15 +1,20 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Button, Form, Input } from "antd";
+import React, { useCallback, useState, useEffect, useRef } from "react";
+import { Form, Input, Button } from "antd";
 import { useSelector, useDispatch } from "react-redux";
+
 import { ADD_POST_REQUEST } from "../reducers/post";
-import useInput from "../hooks/useInput";
 
 const PostForm = () => {
-  const { imagePaths, addPostDone, addPostLoading } = useSelector(
+  const dispatch = useDispatch();
+  const [text, setText] = useState("");
+  const { imagePaths, addPostLoading, addPostDone } = useSelector(
     (state) => state.post
   );
-  const [text, setText] = useInput("");
-  const dispatch = useDispatch();
+
+  const imageInput = useRef();
+  const onClickImageUpload = useCallback(() => {
+    imageInput.current.click();
+  }, [imageInput.current]);
 
   useEffect(() => {
     if (addPostDone) {
@@ -24,16 +29,11 @@ const PostForm = () => {
         text,
       },
     });
-  }, [text]);
+  }, []);
 
   const onChangeText = useCallback((e) => {
     setText(e.target.value);
   }, []);
-
-  const imageInput = useRef();
-  const onClickImageUpload = useCallback(() => {
-    imageInput.current.click();
-  }, [imageInput.current]);
 
   return (
     <Form
@@ -42,10 +42,10 @@ const PostForm = () => {
       onFinish={onSubmitForm}
     >
       <Input.TextArea
+        maxLength={140}
+        placeholder="어떤 신기한 일이 있었나요?"
         value={text}
         onChange={onChangeText}
-        maxLength={140}
-        placeholder="어떤 신기한 일이 벌어지고 있나요?"
       />
       <div>
         <input type="file" multiple hidden ref={imageInput} />
@@ -62,7 +62,11 @@ const PostForm = () => {
       <div>
         {imagePaths.map((v) => (
           <div key={v} style={{ display: "inline-block" }}>
-            <img src={v} alt={v} style={{ width: "200px" }} />
+            <img
+              src={`http://localhost:3065/${v}`}
+              style={{ width: "200px" }}
+              alt={v}
+            />
             <div>
               <Button>제거</Button>
             </div>

@@ -24,8 +24,7 @@ const LoginForm = () => {
   // const style = useMemo(() => ({ marginTop: 10 }), []);
 
   const onSubmitForm = useCallback(() => {
-    //onFinish는 이미 preventDefault가 적용되어있다.
-    console.log(id, password);
+    console.log(email, password);
     dispatch({
       type: LOG_IN_REQUEST,
       data: { email, password },
@@ -56,7 +55,6 @@ const LoginForm = () => {
           required
         />
       </div>
-      {/* 스타일 작성할 때 객체로 생성하면 리렌더링이 된다. 객체사용 X */}
       <ButtonWrapper>
         <Button type="primary" htmlType="submit" loading={logInLoading}>
           로그인

@@ -3,6 +3,7 @@ import UseInput from './hooks/useInput';
 import UseTabs from './hooks/useTabs';
 import UseTitle from './hooks/useTitle';
 import UseClick from './hooks/useClick';
+import UseConfirm from './hooks/useConfirm';
 
 function App() {
     return (
@@ -10,7 +11,8 @@ function App() {
             {/* <UseInput /> */}
             {/* <UseTabs /> */}
             {/* <UseTitle /> */}
-            <UseClick />
+            {/* <UseClick /> */}
+            <UseConfirm />
         </div>
     );
 }

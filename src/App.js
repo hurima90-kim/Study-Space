@@ -4,6 +4,7 @@ import UseTabs from './hooks/useTabs';
 import UseTitle from './hooks/useTitle';
 import UseClick from './hooks/useClick';
 import UseConfirm from './hooks/useConfirm';
+import UsePreventLeave from './hooks/usePreventLeave';
 
 function App() {
     return (
@@ -12,7 +13,8 @@ function App() {
             {/* <UseTabs /> */}
             {/* <UseTitle /> */}
             {/* <UseClick /> */}
-            <UseConfirm />
+            {/* <UseConfirm /> */}
+            <UsePreventLeave />
         </div>
     );
 }

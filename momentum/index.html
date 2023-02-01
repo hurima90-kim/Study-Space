@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Momentum App</title>
+</head>
+<body>
+    <div class="container">
+        <div class="js-clock">
+            <h1 class="js-title">00: 00</h1>
+        </div>
+        <form class="js-form form">
+            <input type="text" placeholder="What is your name?">
+        </form>
+        <h4 class="js-greetings greetings"></h4>
+        <form class="search">
+            <input 
+                class="keyword" 
+                type="text" 
+                name="search" 
+                value=""
+                maxlength="255" 
+                placeholder="Google 검색 또는 URL 입력"
+            >
+            <button class="search-button" type="submit" value="" >
+                <i class="fas fa-search fa-lg"></i>
+            </button>
+        </form>
+        <div class="short-cut-list"></div>
+        <div class="modal-button">
+            <button class="openModal">
+                <i class="far fa-plus-square fa-3x"></i>
+            </button>
+            <p>바로가기 추가</p>
+        </div>
+        <div class="modal hidden">
+            <div class="modal-bg"></div>
+            <div class="modal-container">
+                <h4>바로가기 추가</h4>
+                <form class="modal-form">
+                    <label for="name">
+                        이름
+                    </label>
+                    <input type="text" id="name" value="" class="name" required>
+                    <label for="url">
+                        URL
+                    </label>
+                    <input type="text" id="url" value="" class="url" required>
+                    <div class="btn-container">
+                        <button class="btn closeModal">취소</button>
+                        <button class="btn completeModal" type="submit">완료</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="weather">
+            <h2 class="city"></h2>
+            <h2 class="temp"></h2>
+            <div class="weather-container">
+                <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
+                <span class="description"></span>
+            </div>
+        </div>
+        <div id="quote">
+            <span></span>
+            <span>-</span>
+            <span></span>
+        </div>
+    </div>
+    <script src="./js/clock.js"></script>
+    <script src="./js/greeting.js"></script>
+    <script src="./js/bg.js"></script>
+    <script src="./js/quotes.js"></script>
+    <script src="./config.js"></script>
+    <script src="./js/weather.js"></script>
+    <script src="./js/search.js"></script>
+    <script src="./js/modal.js"></script>
+    <script src="./js/shortcut.js"></script>
+</body>
+</html>

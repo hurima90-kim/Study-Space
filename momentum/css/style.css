@@ -1,0 +1,270 @@
+body {
+  background-color: #ecf0f1;
+}
+
+h1 {
+  color: #fff;
+  font-size: 100px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+h4 {
+  color: #fff;
+  font-size: 50px;
+}
+
+span {
+  color: #fff;
+}
+
+input {
+  width: 300px;
+  height: 50px;
+  outline-style: none;
+  border: none;
+  border-bottom: 2px solid #fff;
+  background: transparent;
+  padding-left: 20px;
+  font-size: 30px;
+  color: #fff;
+}
+
+input::placeholder {
+  color: #fff;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form,
+.greetings {
+  display: none;
+}
+
+.showing {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.search {
+  margin-bottom: 30px;
+}
+
+.keyword {
+  width: 500px;
+  font-size: 16px;
+}
+
+.search-button {
+  border: none;
+  outline: none;
+  background: none;
+  color: #fff;
+}
+
+#weather {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+#weather img {
+  width: 80px;
+}
+
+.city {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.description {
+  display: block;
+  font-size: 16px;
+}
+
+.temp {
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: fadeIn 0.5s linear;
+}
+
+#quote {
+  position: absolute;
+  bottom: 30px;
+  font-size: 18px;
+}
+
+.short-cut-list {
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  text-align: center;
+}
+
+.short-cut-list div {
+  position: relative;
+  width: 80px;
+  padding: 10px;
+}
+
+.short-cut-list a {
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.short-cut-list button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  outline: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.short-cut-list div {
+  margin-bottom: 5px;
+}
+
+.short-cut-list p {
+  font-size: 14px;
+  color: #fff;
+}
+
+.short-cut-list img {
+  width: 40px;
+  height: 40px;
+}
+
+.modal-button {
+  width: 80px;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  vertical-align: center;
+}
+
+.modal-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.openModal {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #fff;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.modal-button p {
+  margin: 0;
+  font-size: 14px;
+  color: #fff;
+}
+
+/* -------------------- Modal CSS -------------------- */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal h4 {
+  color: #000;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.modal-bg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-container {
+  position: absolute;
+  background-color: #fff;
+  width: 600px;
+  height: 250px;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal input {
+  width: 580px;
+  height: 30px;
+  outline-style: none;
+  border: none;
+  border-radius: 3px;
+  background: #ececec;
+  padding-left: 20px;
+  font-size: 16px;
+  color: #000;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.btn {
+  width: 70px;
+  height: 30px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.closeModal {
+  margin-right: 20px;
+  color: blue;
+  background-color: #fff;
+  border: 2px solid #ececec;
+}
+
+.completeModal {
+  color: gray;
+}

@@ -1,0 +1,28 @@
+.cartItem {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  list-style-type: none;
+  padding: 10px 0;
+  border-bottom: 1px solid gray;
+  margin-top: 10px;
+
+  img {
+    width: 100px;
+    height: 100%;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+}
+
+.cartItem:first-child {
+  border-top: 1px solid gray;
+}
+
+.cartItem_button {
+  border: none;
+  border-radius: 5px;
+  padding: 4px 8px;
+  cursor: pointer;
+  margin-left: auto;
+}

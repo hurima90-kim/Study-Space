@@ -1,0 +1,38 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 0 50px;
+  background-color: #000;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.input_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 25px;
+  background-color: #fff;
+  color: #000;
+
+  input {
+    width: 100%;
+    border: none;
+    display: block;
+  }
+
+  input:focus,
+  input:active {
+    outline: none;
+  }
+}
+
+.cart_icon {
+  cursor: pointer;
+}
